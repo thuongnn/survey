@@ -131,6 +131,9 @@ func (i *Input) OnChange(key rune, config *PromptConfig) (bool, error) {
 }
 
 func (i *Input) Prompt(config *PromptConfig) (interface{}, error) {
+	// reset answer when has error
+	i.answer = ""
+	
 	// render the template
 	err := i.Render(
 		InputQuestionTemplate,
